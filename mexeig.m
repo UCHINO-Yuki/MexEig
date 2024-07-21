@@ -22,31 +22,34 @@ res3=0;
 
 if strcmp(func,'compile')
     disp('Compiling ... ')
+    p = which('mexeig');
+    p = p(1:end-8);
     try
-        mex -R2018a ./private/dsyev.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/dsyevd.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/dsyevx.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/dsyevr.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/dgeev.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/dgeevx.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/dsygv.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/dsygvd.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/dsygvx.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/dggev.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/dggev3.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/dggevx.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/ssyev.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/ssyevd.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/ssyevx.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/ssyevr.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/sgeev.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/sgeevx.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/ssygv.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/ssygvd.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/ssygvx.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/sggev.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/sggev3.c -lmwlapack -silent -outdir ./private
-        mex -R2018a ./private/sggevx.c -lmwlapack -silent -outdir ./private
+        mex('-R2018a', [p 'private/dsyev.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/dsyevd.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/dsyevx.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/dsyevr.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/dgeev.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/dgeevx.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/dsygv.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/dsygvd.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/dsygvx.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/dggev.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/dggev3.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/dggevx.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+
+        mex('-R2018a', [p 'private/ssyev.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/ssyevd.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/ssyevx.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/ssyevr.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/sgeev.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/sgeevx.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/ssygv.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/ssygvd.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/ssygvx.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/sggev.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/sggev3.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
+        mex('-R2018a', [p 'private/sggevx.c'], '-lmwlapack', '-silent', '-outdir', [p 'private']);
     catch
         error('error');
     end
